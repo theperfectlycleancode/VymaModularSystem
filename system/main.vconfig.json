@@ -1,0 +1,10 @@
+{
+	"vyma":{
+		"sys.version":1,
+		"sys.name":"VymaSystem"
+	},
+	"config":{
+		"name":"main",
+		"version":1.02
+	}
+}
