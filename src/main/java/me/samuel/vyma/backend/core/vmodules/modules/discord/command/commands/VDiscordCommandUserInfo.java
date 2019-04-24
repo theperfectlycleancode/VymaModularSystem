@@ -29,10 +29,23 @@ public class VDiscordCommandUserInfo extends VDiscordCommand {
         List<User> users = contextEvent.getMessage().getMentionedUsers();
 
         if (users.size() > 1) {
-            if(contextEvent.getMessage().getAuthor().asUser().isPresent())
-                channel.sendMessage(contextEvent.getMessage().getAuthor().asUser().get().getMentionTag()+" please only enter one user at a time!");
-            else
-                channel.sendMessage(" Undefined behaviour!");
+            if(contextEvent.getMessage().getAuthor().asUser().isPresent()) {
+                EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Error");
+                embedBuilder.setColor(new Color(64, 0, 9, 200));
+                embedBuilder.addField(contextEvent.getMessage().getAuthor().asUser().get().getMentionTag(), " please only enter one user at a time!");
+
+                channel.sendMessage(embedBuilder);
+                contextEvent.getMessage().delete();
+            }
+            else {
+                EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Error");
+                embedBuilder.setColor(new Color(64, 0, 9, 200));
+                embedBuilder.addField("Undefined behaviour!", "Undefined behaviour!");
+
+                channel.sendMessage(embedBuilder);
+                contextEvent.getMessage().delete();
+
+            }
             return;
         }
 
@@ -40,9 +53,22 @@ public class VDiscordCommandUserInfo extends VDiscordCommand {
 
         contextEvent.getMessage().delete();
 
+        if(users.size() <= 0) {
+            try {
+                EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Error");
+                embedBuilder.setColor(new Color(64, 0, 9, 200));
+                embedBuilder.addField("Not a user!", "Could not fetch userData, please specify a target!");
+
+                message.get().edit("", embedBuilder);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+
         User target = users.get(0);
 
-        EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("Vyma");
+        EmbedBuilder embedBuilder = new EmbedBuilder().setAuthor("§UserInfo");
 
         embedBuilder.setColor(new Color(0, 64, 3, 200));
         embedBuilder.addField("userName", target.getName());
