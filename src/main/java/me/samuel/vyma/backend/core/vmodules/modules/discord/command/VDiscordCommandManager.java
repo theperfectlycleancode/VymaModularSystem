@@ -58,32 +58,32 @@ public class VDiscordCommandManager extends VManager<VDiscordCommand> {
 
         List<String> args = new ArrayList<>();
 
-        String currentArg = "";
+        StringBuilder currentArg = new StringBuilder();
 
         int i = 0;
         for(char c : text.toCharArray()) {
             i++;
             if(c != placeholder) {
-                currentArg += c;
+                currentArg.append(c);
             }else {
-                if(currentArg.length() > 1 && !currentArg.equals(cmdName)) {
-                    args.add(currentArg);
+                if(currentArg.length() > 1 && !currentArg.toString().equals(cmdName)) {
+                    args.add(currentArg.toString());
                 }
-                currentArg = "";
+                currentArg = new StringBuilder();
             }
             if(i >= text.toCharArray().length) {
-                if(currentArg.length() > 1 && !currentArg.equals(cmdName)) {
-                    args.add(currentArg);
+                if(currentArg.length() > 1 && !currentArg.toString().equals(cmdName)) {
+                    args.add(currentArg.toString());
                 }
-                currentArg = "";
+                currentArg = new StringBuilder();
             }
         }
         if(args.size() > 0) {
-            String[] arrg = new String[args.size()];
+            String[] return_args = new String[args.size()];
             for(i = 0; i < args.size(); i++) {
-                arrg[i] = args.get(i);
+                return_args[i] = args.get(i);
             }
-            return arrg;
+            return return_args;
         }
         return new String[]{};
     }

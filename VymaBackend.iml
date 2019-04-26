@@ -24,5 +24,6 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.fasterxml.jackson.core:jackson-core:2.9.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.neovisionaries:nv-websocket-client:2.6" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.logging.log4j:log4j-api:2.11.0" level="project" />
+    <orderEntry type="library" name="VymaPluginInterface" level="project" />
   </component>
 </module>
