@@ -2,6 +2,7 @@ package me.samuel.vyma.backend;
 
 import me.samuel.vyma.backend.core.vmodules.bootstrap.Bootstrap;
 import me.samuel.vyma.backend.core.vmodules.managers.VConfigManager;
+import me.samuel.vyma.backend.core.vmodules.managers.VPluginManager;
 import me.samuel.vyma.backend.core.vmodules.modules.configs.VMainConfig;
 
 import java.nio.file.Paths;
@@ -30,6 +31,9 @@ public class VymaBackend {
         bootstrap.get(VConfigManager.class).load(VMainConfig.NAME);
         //bootstrap.get(VConfigManager.class).load(VDiscordConfig.NAME);
         bootstrap.get(VConfigManager.class).init();
+        bootstrap.load(new VPluginManager(Paths.get("/home/nullptr/IdeaProjects/VymaBackend/system/plugins")));
+        bootstrap.get(VPluginManager.class).load("VDiscordBot.jar");
+
         //bootstrap.load(new VDiscordManager());
         //bootstrap.get(VDiscordManager.class).register(new VDiscord());
     }

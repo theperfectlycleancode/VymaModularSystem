@@ -4,17 +4,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>VymaSystem</groupId>
+    <groupId>me.samuel.vyma.backend</groupId>
     <artifactId>VymaBackend</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.9</maven.compiler.target>
+        <maven.compiler.source>1.9</maven.compiler.source>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>me.samuel.vyma.plugiginterface</groupId>
+            <artifactId>VPluginInterface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/root/IdeaProjects/VymaPluginInterface/target/VPluginInterface.jar</systemPath>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
@@ -39,6 +46,7 @@
             <version>3.0.4</version>
             <type>pom</type>
         </dependency>
+
 
     </dependencies>
 

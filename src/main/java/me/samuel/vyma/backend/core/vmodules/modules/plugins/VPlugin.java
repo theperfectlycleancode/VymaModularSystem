@@ -33,11 +33,12 @@ public class VPlugin extends VModule {
     public void onLoad() {
         try {
             urlClassLoader = new URLClassLoader(new URL[]{pluginFile.toURI().toURL()});
-
+            System.out.println(urlClassLoader.getURLs()[0]);
             serviceLoader = ServiceLoader.load(VPluginInterface.class, urlClassLoader);
             Iterator<VPluginInterface> apit = serviceLoader.iterator();
+            System.out.println(serviceLoader.iterator().hasNext());
             while (apit.hasNext())
-                System.out.println(apit.next().getName());
+                System.out.println("plugin >> "+apit.next().getName());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
