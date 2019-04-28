@@ -32,7 +32,7 @@ public class VymaBackend {
         //bootstrap.get(VConfigManager.class).load(VDiscordConfig.NAME);
         bootstrap.get(VConfigManager.class).init();
         bootstrap.load(new VPluginManager(Paths.get("/home/nullptr/IdeaProjects/VymaBackend/system/plugins")));
-        bootstrap.get(VPluginManager.class).load("VDiscordBot.jar");
+        bootstrap.get(VPluginManager.class).load("VymaDiscordBotPlugin.jar");
 
         //bootstrap.load(new VDiscordManager());
         //bootstrap.get(VDiscordManager.class).register(new VDiscord());

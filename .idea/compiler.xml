@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="VymaBackend" target="1.9" />
+      <module name="VymaBackend" target="11" />
       <module name="VymaPluginInterface" target="1.8" />
     </bytecodeTargetLevel>
   </component>
