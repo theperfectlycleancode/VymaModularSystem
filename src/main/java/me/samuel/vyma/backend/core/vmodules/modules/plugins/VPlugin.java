@@ -37,7 +37,7 @@ public class VPlugin extends VModule {
         try {
             String mainClass = null;
             ZipFile zipFile = new ZipFile(pluginFile);
-            InputStream is = zipFile.getInputStream(zipFile.getEntry("extension.yml"));
+            InputStream is = zipFile.getInputStream(zipFile.getEntry("app.yml"));
             Properties config = new Properties();
             config.load(is);
             mainClass = config.getProperty("main");
@@ -78,9 +78,7 @@ public class VPlugin extends VModule {
 
     }
 
-    public void reload() {
-
-    }
+    public void reload() {}
 
     public void onReload() {}
 }
