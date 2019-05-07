@@ -6,6 +6,9 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * VLogger Logger base class
+ */
 public class VLogger extends VModule {
 
     /**

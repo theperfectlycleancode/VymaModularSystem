@@ -2,7 +2,7 @@ package me.samuel.vyma.backend.core.vmodules.modules.exceptionHandler;
 
 import me.samuel.vyma.backend.core.vmodules.VModule;
 
-public abstract class VExceptionHandler extends VModule {
+public abstract class VExceptionHandler extends VModule implements Thread.UncaughtExceptionHandler {
 
 
     /**
@@ -15,7 +15,12 @@ public abstract class VExceptionHandler extends VModule {
         super(name, version);
     }
 
-    public abstract void onException(Exception e);
+    public abstract void onException(Thread thread, Throwable throwable);
+
+    @Override
+    public void uncaughtException(Thread thread, Throwable throwable) {
+        onException(thread, throwable);
+    }
 
     @Override
     public void onLoad() {
